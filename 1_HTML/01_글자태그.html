@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자태그</title>
+</head>
+<body>
+    <!-- h1 ~ h6 : Heading 
+        - 제목을 표시
+        - h1이 가장 큰 제목
+        - *줄 바꿈과 볼드체 적용이 자동으로 됨*
+    -->
+    <h1> Heading 1 </h1>
+    <h2> Heading 2 </h2>
+    <h3> Heading 3 </h3>
+    <h4> Heading 4 </h4>
+    <h5> Haeding 5 </h5>
+    <h6> Heading 6 </h6>
+
+    <!-- p : paragraph 
+        - 문단 구분
+    -->
+    <p> p 요소는 단을 구분할 때 사용하고
+        br 요소는 줄을 바꿀 때 사용한다.
+    </p>
+    <p> p 요소는 단을 구분할 때 사용하고 <br>   <!-- br 태그를 통한 줄바꿈 -->
+        br 요소는 줄을 바꿀 때 사용한다. <br>
+        그리고      공백은 한 개의 공백만을 표시하기 때문에 <br>
+        많은 공백을 넣어도 공백은 하나만 들어감.<br>
+        이걸 모두 표시하려면 별도의 &nbsp; <!--(공백을 뜻하는 & nbsp;)--> 기호구문를 통해 기술해야 한다.<br>
+        공&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;백을 넣기
+    </p>
+
+    <!-- hr : Horizontal
+        - 수평 줄
+    -->
+    <hr> 
+
+    <!-- pre
+        - 입력된 내용 그대로 표현하는 태그
+    -->
+    <pre>
+
+        pre 태그는 시작 태그에서부터 종료 태그까지
+        입력된 내용 그대로 표현하는 태그이다.
+        줄바꿈 br 태그도 없이,   공백 기호구문도 없이 실행할 수 있음
+        잘 사용하진 않음. css를 사용하는 순간 망가지기 쉬움.
+
+    </pre>
+
+    <hr> <!--줄바꿈-->
+
+    <h3> 그 밖에 글자를 다루는 태그들 </h3>
+    <b> b: 글자를 굵게 표시하는 태그 (볼드체.) </b><br> <!--b는 줄바꿈이 안됨.-->
+    <strong> strong: 글자를 굵게 표시하는 태그 (볼드체.) </strong>
+    
+    <br><br>
+
+    <i> i: 글자를 기울여서 표시하는 태그</i> <br>
+    <em> em: 글자를 기울여서 표시하는 태그 </em> <br>
+
+    <b><i> 굵고 기울여서 쓰기 </i></b> <br>
+    <em><b> 굵고 기울여서 쓰기</b></em> <br>
+
+    <br><br>
+
+    <u> u: 글자에 언더바를 표시하는 태그</u> <br>
+    <s> s: 글자에 취소선을 넣어주는 태그 </s>
+    
+
+    <br><br>
+
+    <mark> mark: 글자에 형광펜 효과를 넣어주는 태그 </mark> <br>
+    <b><mark> b + mark : 볼드체와 형광펜 효과 !!!! 개짱중요</mark></b> <br>
+    <b><mark><i> b + mark + i </i></mark></b> <br>
+
+    <hr>
+    <h3>글자 관련 태그 응용 과제 </h3>   
+    <h6> 태그들은 중첩으로 사용이 가능하다.</h6> <br>
+
+    <strong><i>굵게, 기울여서 (b 태그보다는 string 태그를 더 많이 씀) </i></strong> <br>
+    <b><i>굵게, 기울여서</i></b>표현 가능하고,    <br>
+    <i> i 태그는 이모티콘 기호.를 넣을 때에도 사용.</i>
+    <s><mark> 취소선, 형광펜</mark></s>을 넣어 글자를 강조할 수 있음.    <br>
+    <b><i><s><mark> 굵게, 기울여서, 취소선, 형광펜</mark></s></i></b>
+
+    <hr>
+
+    <small> small: 글자를 작게 표현하는 태그 </small> <br>
+    기본 글자에 <sub> sub: 아래첨자</sub> 를 나타내는 태그와 <sup> sup: 윗첨자</sup>를 나타내는 태그
+    <br><br>
+ 
+    <hr>
+    <!-- q 태그와 blockquote 태그의 비교 -->
+    <p>
+        다른 글자들 사이에서 <br>
+        <q cite="https://www.google.com"> q : 인용 문구를 나타내는 태그가 </q>
+        <br> 어떻게 들어가는지 확인
+    </p>
+        <br>
+    <p>
+        <blockquote cite="https://www.google.com"> blockquote 태그를 활용한 인용 </blockquote> <br>
+    </p>
+        <br>
+
+    <abbr title="HyperText Markup Language">HTML</abbr>
+    <p> abbr 태그를 사용하면 마우스를 올렸을 때 밑줄을 통해 title에 넣은 속성이 보임.</p> <br>
+
+    <br>
+
+
+
+
+
+</body>
+</html>
