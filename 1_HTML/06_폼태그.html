@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼태그</title>
+  </head>
+  <body>
+    <h2>폼 태그의 기본 구조</h2>
+
+    <h3>검색 폼</h3>
+
+    <form action="" name="search_form_submit">
+      검색할 내용 : <input type="text" />
+      <button>검색</button>
+    </form>
+
+    <!-- get => 주소창에 이름이 변경-->
+    <form action="" name="search_form" method="GET">
+      <label>검색할 내용 : <input type="text" name="keyword" /></label>
+      <input type="submit" value="검색" />
+    </form>
+
+    <!-- post => 주소창에 올리지 않고 숨겨서 보낼 때-->
+    <h3>회원가입 폼</h3>
+    <form action="" name="signup_form" method="post">
+      <!-- fieldset : <form> 요소에서 연관된 요소들을 하나의 그룹으로 묶을 때 (그 범위 밖으로 박스 모양의 선을 그려줌)-->
+      <!-- legend: fieldset 요소의 캡션 -->
+      <fieldset>
+        <legend>회원정보</legend>
+        <!--label => 어디를 눌러도 선택이 되도록? -->
+        <label for="userId">아이디 : </label>
+        <input type="text" id="userId" name="userId" required autofocus />
+        <br /><br />
+        <label for="userPwd">패스워드 : </label>
+        <input
+          type="password"
+          id="userPwd"
+          name="userPwd"
+          placeholder="패스워드를 입력하세요"
+        />
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>배송정보</legend>
+        <label for="userName"> 수령인 : </label>
+        <input
+          type="text"
+          id="userName"
+          name="userName"
+          value="권예빈"
+          readonly
+        />
+        <br /><br />
+        <label for="addr"> 주소 : </label>
+        <input type="text" id="addr" name="addr" />
+      </fieldset>
+
+      <input type="submit" value="회원가입" />
+    </form>
+
+    <hr />
+
+    <h3>type="radio|checkbox"</h3>
+    <form action="">
+      <fieldset>
+        <legend>성별</legend>
+        <label><input type="radio" name="gender" value="M" /> 남자</label>
+        <br />
+        <label><input type="radio" name="gender" value="F" /> 여자</label>
+        <br />
+        <label
+          ><input type="radio" name="gender" value="X" checked /> 알리고 싶지
+          않음</label
+        >
+      </fieldset>
+
+      <fieldset>
+        <legend>관심사</legend>
+        <label>
+          <input type="checkbox" name="interest" value="pet" checked /> 반려동물
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="interest" value="sing" /> 노래
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="interest" value="drama" /> 드라마
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="interest" value="sport" /> e-스포츠 시청
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="interest" value="game" /> 게임
+        </label>
+      </fieldset>
+      <input type="submit" value="전송" />
+    </form>
+  </body>
+</html>

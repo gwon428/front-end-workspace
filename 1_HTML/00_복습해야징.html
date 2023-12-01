@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>복습할 겸 몽땅 넣어서 만들기</title>
+  </head>
+  <body>
+    <h2 id="목록">목록</h2>
+    <ul>
+      <li><a href="#글자태그">글자 태그</a></li>
+      <li><a href="#목록태그">목록 태그</a></li>
+      <li><a href="#이미지태그">이미지 태그</a></li>
+      <li><a href="#오디오태그">오디오 태그</a></li>
+      <li><a href="#비디오태그">비디오 태그</a></li>
+      <li><a href="#하이퍼링크태그">하이퍼링크 태그</a></li>
+      <li><a href="#테이블태그">테이블 태그</a></li>
+      <li><a href="#폼태그">폼 태그</a></li>
+    </ul>
+
+    <h2 id="글자태그"><a href="#목록">글자태그</a></h2>
+    <p>단락 만들기!!</p>
+    <strong> 글자를 굵게 !! </strong> <br />
+    <i> 글자를 기울여서 'i'태그는 이모티콘 삽입에 쓰이기도 함 </i> <br />
+    <u
+      ><mark
+        ><i><strong>효과 다 때려넣기!!!!!!!</strong></i></mark
+      ></u
+    >
+    <q> 인용 표시하기 !! </q> <br />
+
+    <blockquote>인용문 넣기</blockquote>
+    <mark> 형광펜 효과 </mark> <br />
+    <hr />
+
+    <!--<span>
+      줄바꿈 없이 영역 묶기? 이거 글을 계속 길게 하면 화면 창에 따라 줄바꿈이
+      적용되는건강..
+    </span>-->
+
+    <h2 id="목록태그"><a href="#목록">목록 태그</a></h2>
+    <ul>
+      <p>순서 없는 목록은 ul 태그 안에 li 태그</p>
+      <li>목록 1</li>
+      <li>목록 2</li>
+    </ul>
+
+    <h4>리스트를 중첩으로 사용 가능! ul과 li 태그 구분 잘할 것 ㅠ</h4>
+    <ul>
+      <li>
+        뮤지컬
+        <ul>
+          <li>대극장</li>
+          <li>중극장</li>
+          <li>소극장</li>
+        </ul>
+      </li>
+      <li>연극</li>
+      <li>음악극</li>
+      <li>창극</li>
+    </ul>
+
+    <ol start="3" type="A">
+      <p>
+        순서 있는 목록은 ol 태그 안에 li 태그 <br />
+        ol type 설정으로 목록 다양하게 조절 가능
+      </p>
+      <li>목록 1</li>
+      <li>목록 2</li>
+    </ol>
+
+    <ol reversed start="10" type="1">
+      <li>목록 1</li>
+      <li>목록 2</li>
+      <li>목록 3</li>
+    </ol>
+
+    <h2>설명 목록 만들기</h2>
+    <dl>
+      <dt>설명할 거!</dt>
+      <dd>이게 머냐면~..</dd>
+    </dl>
+    <hr />
+    <h2 id="이미지태그"><a href="#목록">이미지 태그</a></h2>
+    <img src="../resources/cake.jpg" alt="" width="120" /> <br />
+    <img src="../resources/cake.jpg" alt="" width="70%" />
+    <hr />
+    <h2 id="오디오태그"><a href="#목록">오디오 태그</a></h2>
+    <audio src="../resources/audio.mp3" controls autoplay loop></audio>
+    <hr />
+    <h2 id="비디오태그"><a href="#목록">비디오 태그</a></h2>
+    <video src="../resources/video.mp4" controls autoplay width="50%"></video>
+    <hr />
+    <h2 id="하이퍼링크태그"><a href="#목록">하이퍼링크 태그</a></h2>
+    <a href="https://google.com">google.com</a>
+    <h4>응용해서 사진에 하이퍼링크 태그하기</h4>
+    <a href="https://google.com" target="_blank">
+      <img src="../resources/pubao.jpg" alt="" width="30%" />
+    </a>
+    >
+
+    <h2 id="테이블태그"><a href="#목록">테이블태그</a></h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th></th>
+          <th>이름</th>
+          <th>공연장</th>
+          <th>제작사</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="4">뮤지컬</th>
+          <td>데미안</td>
+          <td>드아센3관</td>
+          <td>낭만바리케이트</td>
+        </tr>
+        <tr>
+          <td>광염소나타</td>
+          <td>드아센1관</td>
+          <td>낭만바리케이트</td>
+        </tr>
+        <tr>
+          <td rowspan="2">나르치스와 골드문트</td>
+          <td>드아센1관</td>
+          <td>섬으로 간 나비</td>
+        </tr>
+        <tr>
+          <td>TOM1관</td>
+          <td>섬으로 간 나비</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="폼태그"><a href="#목록">폼태그</a></h2>
+
+    <h3>검색 폼</h3>
+    <form action="" name="search" method="GET">
+      <label>Search for : <input type="text" name="keyword" /></label>
+      <input type="submit" value="검색" />
+    </form>
+
+    <hr>
+??
+    <h3>로그인 폼</h3> 
+    <h6>label tag !!</h6>
+    <form action="" name="login" method="post">
+      <label> Id : </label>
+    <input type="text" id="userId" name="userId" required />
+    <br /><br />
+    <label for="userPwd">pw : </label>
+    <input
+      type="password"
+      id="userPw"
+      name="userPw"
+      placeholder="패스워드를 입력하세요"
+    />
+    <br><br>
+    <input type="submit" value="로그인"></form>
+    
+  </fieldset>
+
+  <hr>
+
+  <h3>배송 정보 입력 </h3>
+  <fieldset>
+    <legend>배송정보</legend>
+    <label for="userName"> 수령인 : </label>
+    <input
+      type="text"
+      id="userName"
+      name="userName"
+    />
+    <br /><br />
+    <label for="addr"> 주소 : </label>
+    <input type="text" id="addr" name="addr" />
+    <br> <br>
+    <input type="submit" value="확인">
+  </fieldset>
+
+  <h3>회원 가입 폼</h3>
+  <fieldset>
+    <legend>회원가입</legend>
+    <label for="name"> 이름 : </label>
+    <input type="text" id="name" name="name">
+    <br>
+    <label for="Id"> Id : </label>
+    <input type="text" id="Id" name="Id">
+    <input type="submit" value="중복 확인">
+    <br>
+    <label for="name"> pw : </label>
+    <input type="password" id="pw" name="pw" placeholder="대문자, 소문자, 숫자 모두 포함">
+<br><br>
+    성별 <br> 
+    <label><input type="radio" name="gender" value="M" /> 남자 </label>
+    <br />
+    <label><input type="radio" name="gender" value="F" /> 여자 </label>
+    <br /> <br>
+
+    광고성 메세지 수신 동의 여부 <br>
+    <label><input type="radio" name="message" value="Y" /> 동의 </label>
+    <br />
+    <label><input type="radio" name="message" value="N" /> 거부 </label>
+    <br /> <br>
+
+    알게 된 경로 <br>
+    <label> <input type="checkbox" name="path" value="friend"></label> 친구 <br>
+    <label> <input type="checkbox" name="path" value="advertisement"></label> 광고 <br>
+    <label> <input type="checkbox" name="path" value="search"></label> 검색 <br>
+
+    <br><br>
+    <input type="submit" value="회원가입">
+  </fieldset>
+
+  <h3></h3>
+  <hr>
+  </body>
+</html>
