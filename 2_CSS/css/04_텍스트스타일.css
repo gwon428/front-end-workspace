@@ -1,0 +1,251 @@
+/* 1. font-family */
+#ff1 {
+  font-family: 궁서체;
+}
+
+#ff2 {
+  font-family: 고딕체;
+}
+
+/* 적용 불가능할 때 폰트가 적용될 순서 */
+#ff3 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 구글 웹 폰트 : fonts.google.com*/
+/* 구글 폰트 > 글꼴 선택 > select > link 태그 붙여넣고, CSS 붙여넣기 */
+/* CSS 태그가 나오지 않을 때 링크에 있는 폰트 이름에서 +를 ' '으로 바꿔 "글꼴 이름", sans-serif;*/
+#ff4 {
+  font-family: "East Sea Dokdo", sans-serif;
+}
+
+/* 2. font-size */
+/* default : 16px */
+#fs1 {
+  font-size: 19px;
+}
+
+#fs2 {
+  /* em : 부모의 n배. */
+  font-size: 2em;
+}
+
+#fs3 {
+  /* 2rem : 무조건 최상위 px의 2배 (주로 html)*/
+  font-size: 2rem;
+}
+
+#fs4 {
+  /* % : 부모의 n% */
+  font-size: 20%;
+}
+
+/* 3. font-weight */
+#fw1 {
+  font-weight: bold;
+}
+
+#fw2 {
+  /* border */
+  font-weight: 900;
+}
+
+#fw3 {
+  /* lighter */
+  font-weight: 100;
+}
+
+/* 4. font-style */
+#fs5 {
+  font-style: italic;
+}
+
+#fs6 {
+  font-style: oblique;
+}
+
+/* 5. font-variant */
+#fv {
+  /* small-caps: 작은 대문자 */
+  font-variant: small-caps;
+}
+
+/* 6. font */
+/* font: font-style font-variant font-weight 
+font-size/line-height(줄간격) font-family */
+#font1 {
+  font: italic small-caps bold 32px/2 "East Sea Dokdo";
+}
+
+#font2 {
+  font: 2rem "궁서체";
+}
+
+/* 7. color */
+#c-name {
+  color: red;
+}
+#c-16 {
+  /* # */
+  color: #dd0bf2;
+}
+#c-rgb {
+  color: rgb(50, 57, 250);
+  /* color: rgba(50, 57, 250, 0.486); */
+  /* a : 투명도. */
+}
+#c-hsl {
+  color: hsl(360, 50%, 50%);
+  /* 색상값(0~360) 채도(%) 명도(%) */
+  /* color: hsla(360, 50%, 50%, 0.2); */
+}
+
+/* 8. text-decoration */
+#td1 {
+  text-decoration: underline;
+}
+
+#td2 {
+  text-decoration: overline;
+}
+
+#td3 {
+  text-decoration: line-through;
+}
+
+#td4 {
+  text-decoration: none;
+}
+
+/* 방문한 것에 스타일을 추가 */
+#td4:visited {
+  color: green;
+}
+
+/* 9. text-transform */
+#tt1 {
+  text-transform: uppercase;
+}
+
+#tt2 {
+  text-transform: lowercase;
+}
+
+#tt3 {
+  text-transform: capitalize;
+}
+
+/* 10. text-shadow */
+/* text-shadow: dx dy blur color 
+    - dx : 그림자의 가로방향 거리 지정 (양수: 오른쪽, 음수: 왼쪽)
+    - dy : 그림자의 세로방향 거리 지정 (양수: 아래쪽, 음수: 위쪽)
+    - blur : 그림자의 흐려짐 정도 (양수: 모든 방향으로 번짐, 음수: 모든 방향으로 축소)
+    - color : 그림자의 색상 지정 (default: 현재 글자 색) 
+*/
+
+.shadow {
+  font-size: 50px;
+  font-weight: 900;
+}
+
+#ts1 {
+  color: orangered;
+
+  text-shadow: 5px 5px 5px gray;
+}
+
+#ts2 {
+  color: white;
+  text-shadow: 0px 0px 10px yellowgreen;
+}
+
+#ts3 {
+  text-shadow: 0px 0px 4px gray, 0px -5px 4px yellow, 0px -10px 8px orange,
+    0px -15px 15px orangered, 0px -22px 20px red;
+}
+
+/* 11. white-space */
+#whs {
+  border: 1px solid;
+  width: 200px;
+  /* normal: 여러 개의 공백을 하나로 표시 (default) */
+  white-space: normal;
+  /* nowrap: 여러 개의 공백을 하나로 표시 + 영역을 넘어가는 내용은 줄 바꾸지 않고 한 줄로 표시 */
+  white-space: nowrap;
+  /* pre: 여러 개의 공백을 그대로 표시 + 영역을 넘어가는 내용은 줄 바꾸지 ㅇ낳고 한 줄로 표시 */
+  white-space: pre;
+  /* pre-line: 여러 개의 공백을 하나로 표시 */
+  white-space: pre-line;
+  /* pre-wrap: 여러 개의 공백을 그대로 표시 */
+  white-space: pre-wrap;
+}
+
+/* 12. letter-spacing */
+#ls {
+  letter-spacing: 10px;
+  /* letter-spacing: 1.8rem; */
+}
+
+/* 13. word-spacing */
+#ws {
+  word-spacing: 20px;
+}
+
+/* 14. text-align */
+#ta1 {
+  text-align: left;
+}
+
+#ta2 {
+  text-align: right;
+}
+
+#ta3 {
+  text-align: center;
+}
+
+#ta4 {
+  text-align: justify;
+}
+
+/* 15. text-indent */
+#ti {
+  text-indent: 10px;
+}
+
+/* 16. line-height */
+#lh {
+  line-height: 40px;
+  line-height: 1.8;
+}
+
+/* 17. text-overflow */
+/* 
+- clip (default) : 영역을 넘어가는 텍스트를 자른다.
+- ellipsis : 말 줄임으로 잘린 텍스트를 표현한다.
+*/
+
+#to {
+  background-color: beige;
+  width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  /* hidden: 영역 밖으로 나간 텍스트를 없앰 */
+  text-overflow: clip;
+  /* clip: 자르기 (default)*/
+  text-overflow: ellipsis;
+  /* ellipsis: 말 줄임표 사용 */
+}
+
+/* 18. list-style(-type) */
+/* 
+- disc (default): 채워진 원 모양 불렛
+- circle : 비워진 원 모양 불렛
+- **none** : 불렛 없애기
+*/
+#list1 {
+  list-style: disc;
+  list-style: circle;
+  list-style: square;
+  list-style: none;
+}
