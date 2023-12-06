@@ -159,3 +159,56 @@
   height: 100px;
   background-color: blue;
 }
+
+/* visibility */
+.visibility {
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+}
+
+#vis1 {
+  /* visibility: hidden => (요소를 숨김) 요소가 존재했던 여백은 그대로 두고, 보이는 것만 안 보임*/
+  /* display:none => ((요소를 아예 감춤) 요소가 존재했던 여백이 사라짐 */
+  visibility: hidden;
+  display: none;
+  background-color: beige;
+}
+
+#vis2 {
+  background-color: skyblue;
+}
+
+/* z-index */
+/* position과 함께 쓰임 */
+#z-outer {
+  /* 자식 요소들이 밖으로 빠져나가지 못하게 설정 */
+  position: relative;
+  height: 250px;
+}
+
+.z-index {
+  width: 150px;
+  height: 150px;
+  border: 1px solid;
+  position: absolute;
+}
+
+/* 숫자가 높을수록 위 */
+#z-index1 {
+  background-color: orange;
+  top: 100px;
+  left: 100px;
+  z-index: 5;
+}
+
+#z-index2 {
+  top: 50px;
+  left: 50px;
+  z-index: 99;
+}
+
+#z-index3 {
+  background-color: green;
+  z-index: -1;
+}

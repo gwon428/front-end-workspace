@@ -1,0 +1,82 @@
+.container {
+  height: 100vh;
+  background: lightgray;
+
+  /* 1. display:flex; 적용 */
+  display: flex;
+
+  /* 2. flex-direction 적용 */
+  flex-direction: column;
+  flex-direction: column-reverse;
+  flex-direction: row-reverse;
+  flex-direction: row; /* default */
+
+  /* 3. flex-wrap */
+  /* flex-wrap: wrap; /* 자동 줄바꿈 */
+  flex-wrap: wrap-reverse;
+  flex-wrap: nowrap;
+  /* default */
+
+  /* 4. justify-content */
+  justify-content: flex-end;
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+  justify-content: center;
+  justify-content: flex-start; /* default */
+
+  /* 5. align-items */
+  align-items: flex-start;
+  align-items: flex-end;
+  /*높이가 100vh일 때 justify-content와 align-items가 center일 때 정중앙에 정렬할 수 있음*/
+  align-items: center;
+  align-items: baseline; /* 텍스트 높이를 동일시 */
+  align-items: stretch;
+
+  /* 6. align-content */
+  align-content: flex-end;
+  align-content: center;
+  align-content: space-between;
+  align-content: space-around;
+}
+
+.item {
+  background-color: white;
+  border: 3px solid black;
+  padding: 1rem;
+  flex-basis: auto;
+  flex: 1; /*균일하게 채움*/
+}
+
+/* flex-grow: 빈 공간들을 가져가는 비율 (빈틈없이 채울 때) */
+.item:nth-child(1) {
+  /* flex-grow: 1; */
+  align-self: start;
+  order: 2;
+}
+
+.item:nth-child(2) {
+  /* flex-grow: 5; */
+  align-self: center;
+  order: -1;
+}
+
+.item:nth-child(3) {
+  /* flex-grow: 2; */
+  align-self: flex-end;
+}
+
+.item:nth-child(4) {
+  /* flex-grow: 3; */
+  align-self: flex-end;
+}
+
+.item:nth-child(5) {
+  /* flex-grow: 0; */
+  order: 0;
+}
+
+.item img {
+  width: 95px;
+  height: 95px;
+}

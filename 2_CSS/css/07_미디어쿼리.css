@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+.container {
+  background-color: cornflowerblue;
+}
+
+#con-1 {
+  font-size: 0;
+}
+
+/* 가상요소 after를 사용하여 con-2 content 뒤에 삽입 */
+#con-2::after {
+  /* content가 있어야 채워지긴 함 */
+  content: "Clear!";
+  clear: both;
+  /* content를 감추고 싶을 때 visibility: hidden */
+  visibility: hidden;
+  display: block;
+  height: 0;
+}
+
+.item-inline-block {
+  /* width값을 주지 않으면 default가 100%이기 때문 */
+  display: inline-block;
+  font-size: 1rem;
+  /* 위로 정렬 */
+  vertical-align: top;
+  /* vertical-align: middle; */
+}
+
+.item-style-1 {
+  background-color: paleturquoise;
+}
+
+.item-style-2 {
+  background-color: palevioletred;
+}
+
+.item-float {
+  float: left;
+}
+
+/* 미디어쿼리 */
+/* 
+700px 아래에 해당하는 화면 적용은 미디어 쿼리 밖에서 적용 (?)
+*/
+/* 
+- @media screen and (화면 크기 지정) {
+                        ㄴ min-width, max-width
+}
+*/
+
+/* 추천 : min-width 사용 */
+/* 가장 작은 값부터 정해서 최대로 나아가는 방향 */
+/* 700px 이상부터 적용 */
+@media screen and (min-width: 700px) {
+  .item-mediaquery {
+    float: left;
+  }
+  .item-style-1 {
+    width: 40%;
+  }
+  .item-style-2 {
+    width: 60%;
+  }
+  #con-3::after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+  /* body {
+    background: black;
+  } */
+}
+
+/* 1200px 이상부터 적용 */
+@media screen and (min-width: 1200px) {
+  /* body {
+    background: red;
+  } */
+}
+
+footer {
+  background-color: darkgray;
+  padding: 5%;
+  /* clear: both; */
+}
