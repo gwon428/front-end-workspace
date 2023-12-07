@@ -1,0 +1,91 @@
+header {
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  display: flex;
+
+  /* 둘의 박스가 구분되어있기 때문에 양쪽 끝으로 붙이는 방법이 있음 */
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+header nav {
+  margin-right: 20px;
+  display: flex;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+  /* <a>는 인라인 요소이기 때문에 width, height 값 변경이 안됨 */
+  display: inline-block;
+  height: 60px;
+  line-height: 40px;
+  /* 요소들 사이 거리가 멀게 */
+  padding: 10px;
+  /* 딱 떨어지게 하는 */
+  box-sizing: border-box;
+}
+
+header nav a:hover {
+  color: tomato;
+  background-color: black;
+}
+
+main {
+  padding-top: 60px;
+}
+
+main section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main section h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+main section p {
+  text-align: center;
+  width: 70%;
+  line-height: 1.5rem;
+}
+
+main section:nth-child(1) {
+  background-color: red;
+}
+main section:nth-child(2) {
+  background-color: purple;
+}
+main section:nth-child(3) {
+  background-color: yellow;
+}
+
+.top {
+  /* position 을 통해 a 태그도 width와 height가 적용이 됨 */
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background-color: black;
+  text-decoration: none;
+  width: 100px;
+  height: 100px;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

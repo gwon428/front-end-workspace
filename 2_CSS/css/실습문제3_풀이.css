@@ -1,0 +1,79 @@
+header {
+  width: 400px;
+  height: 100vh;
+  position: fixed;
+
+  background-image: url(/resources/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.header-blackbox {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  display: flex;
+  /* 한 번에 먹여도 LOGO / Menu 두 덩어리로 나뉘어서 정렬, 주축이 세로가 됨. */
+  flex-direction: column;
+  /* 기본 background의 범위가 글자만큼 있기 때문에 justify-content가 적용되지 않음. */
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  font-size: 5rem;
+  /* text-decoration:underline; 은 글자와 밑줄 사이 간격 조절이 어려움 */
+  border-bottom: 2px solid white;
+  padding-bottom: 15px;
+  width: 60%; /*underline 길이 조절*/
+  text-align: center;
+  margin-top: 80px;
+}
+
+.header-content nav {
+  margin-bottom: 100px;
+}
+
+/* a태그는 color를 먹여도 안 먹히고, 따로 넣어줘야 함. */
+.header-content a {
+  color: white;
+  display: block;
+  font-size: 1.8rem;
+  margin: 20px;
+}
+
+section {
+  padding: 20px;
+  padding-left: 420px;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  /* text-align: left; */
+}
+
+section img {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  align-self: center; /*section에 display:flex를 적용 후 적용*/
+}
+
+section p {
+  line-height: 1.8;
+  /* text-align: left; */
+}

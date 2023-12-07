@@ -1,0 +1,65 @@
+header {
+  /* border: 1px solid; */
+  width: 20%;
+  float: left;
+  height: 100vh;
+  background-image: url(/resources/background.jpg);
+  background-position: 50%;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+}
+
+.side {
+  position: fixed;
+  color: white;
+  width: 20%;
+  height: 100vh;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+.side h1 {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  text-decoration: underline;
+}
+
+.menu {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: larger;
+}
+
+main {
+  padding-left: 20%;
+  padding-top: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+main img {
+  width: 50%;
+  display: flex;
+}
+
+main h3 {
+  text-align: left;
+}
+
+main p {
+  padding-top: 20px;
+  padding-left: 10px;
+  text-align: left;
+  line-height: 30px;
+}

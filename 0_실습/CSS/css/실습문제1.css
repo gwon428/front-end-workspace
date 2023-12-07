@@ -1,0 +1,46 @@
+body {
+  background-color: rgb(209, 237, 248);
+  height: 100vh;
+  padding: 30px;
+}
+
+.profilecard {
+  background-color: rgb(241, 241, 241);
+  width: 300px;
+  margin: auto;
+  display: block;
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.profilecard img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 30px;
+}
+
+.profilecard h1 {
+  font-size: 15px;
+  margin-top: 5px;
+  color: rgb(56, 56, 56);
+}
+
+.href a {
+  display: block;
+  padding: 15px;
+  margin: 15px 0px;
+  background-color: rgb(175, 144, 141);
+  text-decoration: none;
+  color: white;
+  font-weight: lighter;
+}
+
+.href a:hover {
+  background-color: white;
+  color: blue;
+  font-weight: bolder;
+}

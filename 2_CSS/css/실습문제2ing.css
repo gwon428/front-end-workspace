@@ -1,0 +1,48 @@
+header {
+  position: fixed;
+  width: 100%;
+  background-color: skyblue;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: larger;
+  font-weight: bolder;
+  margin-left: 20px;
+}
+
+header nav {
+  margin-right: 20px;
+  display: flex;
+}
+
+header nav a {
+  text-decoration: none;
+  color: black;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+main {
+  padding-top: 60px;
+}
+
+main section {
+  text-align: center;
+}
+
+main section:nth-child(1) {
+  background-color: red;
+}
+main section:nth-child(2) {
+  background-color: orange;
+}
+main section:nth-child(3) {
+  background-color: yellow;
+}
