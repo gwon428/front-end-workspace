@@ -1,0 +1,159 @@
+header {
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px;
+}
+header nav {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+header a {
+  color: gray;
+  padding: 10px;
+}
+
+main {
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+}
+main h2 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+main h3 {
+  font-size: 2.2rem;
+}
+
+#main-content {
+  display: flex;
+  flex-wrap: wrap;
+  /* 도형을 정중앙에 */
+  justify-content: center;
+}
+
+.circle {
+  background-color: black;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  /* 글자를 정중앙에 */
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.circle:nth-child(1) {
+  background-color: indianred;
+}
+.circle:nth-child(2) {
+  background-color: coral;
+}
+.circle:nth-child(3) {
+  background-color: cadetblue;
+}
+.circle:nth-child(4) {
+  background-color: steelblue;
+}
+#contents {
+  padding: 10px;
+}
+#contents h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.article-content {
+  margin-bottom: 20px;
+}
+.article-content img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.aside-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.aside-content img {
+  width: 30%;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 675px) {
+  .circle {
+    width: 250px;
+    height: 250px;
+    margin: 30px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  header h1 {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding-bottom: 0px;
+  }
+  header nav > * {
+    width: 100%;
+  }
+  header nav a {
+    display: inline-block;
+    line-height: 40px;
+  }
+
+  /* 이게 아닌 container(부모요소)로 조절해야 함. */
+  .article-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 946px) {
+  .circle {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+  }
+  header h1 {
+    position: static; /* 원상복귀 */
+    transform: none; /* 초기화 */
+  }
+
+  header nav {
+    justify-content: flex-end;
+  }
+  header nav > * {
+    width: auto;
+  }
+  #contents {
+    display: flex;
+  }
+  #contents article {
+    margin-right: 20px;
+  }
+}
