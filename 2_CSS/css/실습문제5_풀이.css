@@ -1,0 +1,55 @@
+body {
+  background: linear-gradient(45deg, black, blue);
+  height: 100vh;
+
+  /* body에 flex를 줘야 container 요소를 정렬시킬 수 있음 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  /* .square에 flex 주려면 부모 요소인 container에 display:flex; */
+  display: flex;
+}
+
+.square {
+  width: 10px;
+  height: 50px;
+  background-color: white;
+  margin: 3px;
+  border-radius: 10px;
+  animation: squareScale 0.3s linear infinite;
+}
+
+.square:nth-child(2),
+.square:nth-child(8) {
+  animation-delay: 0.1s;
+}
+.square:nth-child(3),
+.square:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.square:nth-child(4),
+.square:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.square:nth-child(5),
+.square:nth-child(7) {
+  animation-delay: 0.5s;
+}
+
+@keyframes squareScale {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.5);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}

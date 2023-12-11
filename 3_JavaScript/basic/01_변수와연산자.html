@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01. 변수와 연산자</title>
+  <script>
+    // 출력
+    // 변수 => 해당하는 특징들
+    // 함수 => 동작하는 행위
+    // 객체 안에 변수와 함수가 항상 포함되어 있음
+
+    // document.write => write가 변수가 됨
+    // document.write() => write가 함수가 됨
+    // document.write(111);
+    // ㄴ 브라우저 문서에 적용 (document라는 객체에 write라는 함수를 적용해서 111을 입력해서 출력)
+
+    // console.log(222); // 브라우저 console에 적용
+    // window.console.log(222)
+    // 자바스크립트가 window라는 객체를 가지고 있음
+    // alert(333); // 알림창으로 출력
+    // window.alert(333)
+  </script>
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/4602e82315.js" crossorigin="anonymous"></script>
+
+  <body>
+    <i class="fa-solid fa-paw"></i>
+
+    <h1>변수</h1>
+    <p>어떠한 값을 저장하는 공간</p>
+    <!-- var, const, let -->
+    <script>
+        // 옛날 방식 - 거의 사용 x
+        var varA = 100; // var 변수 = 값;
+        console.log(varA);
+        varA = 'ㅋㅋㅋ';
+        console.log(varA);
+
+        // 상수 (const) : 값을 수정할 수 없다. (자주)
+        const constB = 200; // const 변수 = 값;
+        console.log(constB);
+        // constB = 300; // 콘솔 오류. const는 변수를 재설정할 수 없음.
+        // TypeError: Assignment to constant variable.
+
+        // 변수 (let) : 값을 수정할 수 있다. (가끔)
+        let letC = 300;
+        console.log(letC);
+        letC = "zzz";
+        console.log(letC);
+
+        // typeof : 데이터 타입 확인 (string, number etc..)
+        console.log(typeof constB);     // number
+        console.log(typeof letC);       // string
+    </script>
+
+     <!-- 기본 데이터 타입 -->
+     <!-- 문자열 string -->
+     <script>
+        // let letC = 'AAA'; // 오류가 남 => 위 script 태그 내에서 letC를 선언했기 때문
+        // 다른 script 태그여도 같은 변수명을 쓸 수 없음. (해당 파일 내에서 공유되고 있다고 보는 것이 나음)
+        var varA = 'AAA';
+        console.log(varA);  // 오류가 나지 않기 때문에 var 키워드를 쓰지 않게 됨.
+
+        let message = '"안녕" 이라고 말해';
+        // message = "\"안녕\"이라고 말해";
+        console.log(message);
+        console.log(message[1]); //안
+        console.log(message.length);    // 11 (띄어쓰기까지 포함한 문자열의 길이)
+
+        console.log("누군가에게", message); // ,를 통해 띄어쓰기를 반영
+        console.log("누군가에게" + message); // 띄어쓰기가 반영되지 않아서 "" 안에 직접 넣어야 함.
+        console.log(`누군가에게 ${message}`);
+
+        const name = '기린이';
+        const age = 2;
+        console.log(`안녕? 내 이름은 ${name}이고, 나이는 ${age}살`);
+    </script>
+
+    <!-- 숫자 -->
+    <script>
+        const num1 = 10;
+        const num2 = 3;
+        console.log(num1 + num2);
+        console.log(num1-num2);
+        console.log(num1*num2);
+        console.log(num1/num2);
+        console.log(num1%num2);     // 나머지 : 1
+        console.log(num1 ** num2);  // 제곱 : 1000
+
+        // 문자열을 숫자로 변환 (typeof Number());
+        console.log(typeof "100");  // string
+        console.log(typeof Number("100"));    // number
+
+        // 숫자를 문자열로 변환 (typeof String());
+        console.log(typeof 100);    // number
+        console.log(typeof String(100));    //string
+
+        // 실수에서 정수로 변환
+        console.log(parseInt(1.8));     // 1
+    </script>
+
+    <!-- undefined, null -->
+    <script>
+        // 변수 선언만 하고 출력
+        let test
+        console.log(test);      //undefined : 정의되지 않음
+        
+        test = null;
+        console.log(test);      // null : 아무것도 없음
+
+        console.log(Number("Hello"));   //NaN;
+
+    </script>
+
+    <!-- Boolean과 비교 연산자 -->
+    <script>
+        console.log(true);
+        console.log(false);
+
+        let num3 = 100;
+        let num4 = 200;
+        
+        // 비교연산자
+        console.log(num3 < num4);       // true
+        console.log(num3 <= num4);      // true
+        console.log(num3 >= num4);      // false
+
+
+        num4 = 100;
+
+        console.log(num3 == num4);      // true
+        console.log(num3 != num4);      // false
+
+        // data type까지 확인 -> 더 많은 것을 확인한다
+        console.log(num3 === num4);     // true : 
+        console.log(num3 !== num4);     // false : 
+
+        num4 = '100';
+        console.log(num3 == num4);      // true
+        console.log(num3 != num4);      // false
+        console.log(num3 === num4);     // false
+        console.log(num3 !== num4);     // true
+
+        // 다른 자료형을 Boolean으로 변환
+        // false 결과의 조건 : 0, NaN, "", null, undefined
+        // 나머지는 true    
+        console.log(Boolean(0));        // false
+        console.log(Boolean(1));        // true
+        console.log(Boolean());         // false
+    </script>
+
+    <!-- 논리 연산자 -->
+    <script>
+        const a = 100;
+        const b = 200;
+
+        // && : 그리고 [true && true => true \ false && true = false]
+        console.log(a < 200 && a == 100);       // true (T && T)
+        console.log(a > 200 && a == 100);       // false (F && T)
+        
+        // || : 또는 [둘 중 하나라도 true => true]
+        console.log(a > 200 || a == 100);       // true (false || true = true)
+        console.log(a > 200 || a != 100);       // false (false || false == false)
+
+        // ! :  아니다 (not)
+        console.log(!true);     // false
+        console.log(!false);    // true
+        console.log(!!(a > b ));    // false; (!! => 이중부정)
+    </script>
+
+  </body>
+</html>
