@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반복문</title>
+  </head>
+  <body>
+    <h1>반복문</h1>
+
+    <!-- for문 
+    for (초기값; 조건식; 증감식){
+        실행할 명령;
+    }
+    -->
+    <script>
+      // 전위연산자와 후위연산자
+      /*
+        전위연산자 (++n --n) : n = n+1 / n = n-1
+            전위는 계산하고 출력
+        후위연산자 (n++ n--) : n = n+1 / n = n-1
+            후위는 출력하고 계산
+        */
+      let num = 2;
+      console.log(num++); // 2
+      //   출력하고 계산함
+      console.log(num); // 3
+
+      console.log(--num); //2
+      //   계산하고 출력함
+      console.log(num); //2
+
+      // 복합연산자
+      // num 값을 3을 더한 값을 다시 num에 저장
+      num = num + 3; //일반적으로 아는 방법
+      console.log(num); //5
+      num += 3; // 복합대입연산자
+      console.log(num); //8
+
+      // 1~10까지 출력하세요
+      for (let i = 0; i <= 10; i++) {
+        console.log(i);
+      }
+
+      for (let j = 0; j <= 10; j += 3) {
+        console.log(j);
+      }
+    </script>
+
+    <script>
+      const movies = [
+        "서울의 봄",
+        "3일의 휴가",
+        "나폴레옹",
+        "괴물",
+        "싱글 인 서울",
+      ];
+      // 영화 제목을 하나씩 출력해보세요
+      console.log("=====for문=====");
+      for (let i = 0; i < movies.length; i++) {
+        console.log(movies[i]);
+      }
+    </script>
+
+    <!-- for in 문
+    for (const 인덱스 in 배열){
+        실행할 명령;
+    }
+    -->
+    <script>
+      console.log("=====for in문=====");
+      for (const index in movies) {
+        console.log(index);
+        console.log(movies[index]);
+      }
+    </script>
+
+    <!-- for of
+        for (const 값 of 배열) {
+        실행할 명령;
+        }
+     -->
+    <script>
+      console.log("=====for of문=====");
+      for (const value of movies) {
+        console.log(value);
+      }
+    </script>
+
+    <!-- while문
+        while(조건) {
+            조건이 true면 계속 반복
+        }
+     -->
+
+    <script>
+      console.log("=====while문=====");
+      let i = 0;
+      while (i < movies.length) {
+        console.log(movies[i]);
+        i++;
+      }
+    </script>
+
+    <!-- 무한 루프 -> 자바에서 -->
+    <script>
+      // while(true){
+      //    조건을 걸어서 조건에 해당되면 안에서 STOP!
+      //   }
+
+      //   const check = confirm("계속 진행하시겠습니까?");
+      //   console.log(check); //확인 누르면 true, 취소 누르면 false.
+
+      // 확인 버튼 누를 때마다 값이 1씩 커짐
+      let check = 0;
+      console.log(check);
+      //   while (confirm("계속 진행하시겠습니까?")) {
+      //     console.log(++check);
+      //   }
+    </script>
+
+    <!-- break/continue -->
+    <!-- 조건 걸어서 루프문 멈추기 -->
+    <script>
+      // 1부터 10까지 출력
+      //   let number1 = 1;
+      //   while (true) {
+      //     console.log(number1++);
+      //     if (number1 > 10) {
+      //       break;
+      //     }
+      //   }
+
+      // continue는 건너뜀
+      // 1~10까지 홀수만 출력
+      // 함수 내에서 선언된 변수는 scope가 함수까지만
+      for (let number = 1; number <= 10; number++) {
+        if (number === 8) {
+          break;
+        }
+        if (number % 2 === 0) {
+          continue; // 만나면 다시 if문으로 넘어감
+        }
+        console.log(number);
+      }
+      // 1 3 5 7
+
+      // while문
+      let number = 0;
+      while (true) {
+        number++;
+        if (number == 10) break;
+        //  if (number == 10) {
+        //   break;
+        // }
+        if (number % 2 === 0) continue;
+        console.log(number);
+      }
+      //1, 3, 5, 7, 9
+    </script>
+
+    <!-- 2차원 배열
+    코딩테스트에서 만날 가능성
+    -->
+
+    <script>
+      const arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+      ];
+      console.log(arr);
+
+      //1~9 순서대로 출력해보세요 (i, j, k, l)
+      console.log(arr[0]); //[1, 2, 3]
+      console.log(arr[1]); //[4, 5, 6]
+      console.log(arr[2]); //[7, 8, 9]
+
+      // arr[i].length
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+          console.log(arr[i][j]);
+        }
+      }
+
+      for (let l = 2; l < 10; l++) {
+        console.log("=====" + l + "단" + "=====");
+        for (let m = 1; m < 10; m++) {
+          console.log(l + "*" + m + "=" + l * m);
+        }
+      }
+    </script>
+  </body>
+</html>
