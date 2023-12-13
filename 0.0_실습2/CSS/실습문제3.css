@@ -1,0 +1,66 @@
+header {
+  background-image: url(/resources/background.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+  height: 100vh;
+  position: fixed;
+}
+
+.blackbox {
+  opacity: 0.5;
+}
+.content {
+  background-color: black;
+}
+
+header h1 {
+  color: white;
+  height: 30vh;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header nav {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+header nav a {
+  text-decoration: none;
+  color: white;
+}
+
+section {
+  padding-left: 400px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+section h2 {
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+section img {
+  width: 800px;
+  max-width: 90%;
+  height: 100%;
+}
+
+section p {
+  padding: 20px 70px 20px 70px;
+
+  text-align: center;
+  line-height: 20px;
+}

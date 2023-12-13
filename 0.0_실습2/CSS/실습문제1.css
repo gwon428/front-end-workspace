@@ -1,0 +1,41 @@
+body {
+  background-color: rgb(209, 237, 248);
+  height: 100vh;
+}
+
+.profilecard {
+  background-color: skyblue;
+  border: 1px solid skyblue;
+  border-radius: 30px;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  padding-top: 30px;
+  display: block;
+  margin-top: 80px;
+}
+
+.profilecard img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profilecard p {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.href {
+  padding-bottom: 25px;
+}
+.href a {
+  display: block;
+  padding: 20px 10px;
+  margin: 10px 20px;
+  background-color: pink;
+  text-decoration: none;
+  color: white;
+  border-radius: 10px;
+}
