@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수</title>
+  </head>
+  <body>
+    <h1>함수</h1>
+
+    <p>1. 선언적 함수</p>
+    <p>
+      function f(입력값){ <br />
+      return 결과값;<br />
+      }
+    </p>
+    <!-- 1. 선언적 함수 -->
+    <script>
+      //   function 함수명(매개변수(=파라미터(:입력값))) {return 결과값;}
+      //   참고로 함수명은 camelCase(낙타표기법 사용)
+      function sample() {
+        console.log("ㅋㅋㅋㅋㅋㅋ");
+      }
+      sample(); //함수 호출
+
+      function plus(a, b) {
+        return a + b;
+      }
+      plus(20, 30); // 콘솔에는 출력이 되지 않음.
+      console.log(plus(20, 30));
+
+      const result = plus(10, 20);
+      console.log(result);
+
+      const sample1 = sample();
+      console.log(sample1); // undefined : return 값이 없어서 (정의한 것이 없기 때문에) 나오는 결과.
+
+      // 두 수의 값을 더하는 계산
+      console.log(plus(3, 7));
+      console.log(plus(4, 9));
+      console.log(plus(5, 11));
+    </script>
+
+    <p>0. 변수의 유효범위</p>
+    <!-- !!!!! 변수의 유효범위 (Scope)
+    변수를 어디까지 쓸 수 있는지
+    밖에 있는 것은 안에서 쓸 수 있지만, 안에 있는 것은 밖에서 쓸 수 없음.-->
+    <script>
+      const num1 = 100;
+
+      function sample2() {
+        const num1 = 200; // 함수 내에서만 사용
+        console.log(`1. sample2 내부 : ${num1} -> 함수 내부에서 선언한 변수`); // 우선순위는 함수 내에서 선언한 변수가 제일 높음.
+
+        function sample3() {
+          const num2 = 30000;
+          console.log(
+            `3. sample3 내부 : ${num2} -> 함수 내부 속 함수 내부에 선언한 변수`
+          );
+        }
+      }
+
+      console.log(`2. sample2 외부 : ${num1} -> 함수 외부에서 선언한 변수`); // 함수 내부의 변수는 사용할 수 없음.
+      //   console.log(`num2 = ${num2}`); // 정의되어있지 않다는 오류 발생.
+
+      sample2(); // 함수 선언은 2번 문장 출력 이전에 했지만, 함수 호출은 2번 문장 이후에 했기 때문에 2번 문장이 먼저 출력 후 함수 호출되어 1번 문장이 출력.
+    </script>
+
+    <p>2. 익명함수</p>
+    <!-- 2. 익명함수
+    : 함수명이 선언되지 않은 함수 -->
+    <script>
+      //   function (파라미터) {return 결과값;}
+      // 함수 자체를 변수에 담아서 실행하도록 => 변수명이 함수명이 됨.
+      const minus = function (a, b) {
+        return a - b;
+      };
+
+      console.log(minus(70, 30)); // 40;
+    </script>
+
+    <p>3. 화살표함수</p>
+    <!-- 3. 화살표함수
+     -->
+    <script>
+      const minus2 = (a, b) => {
+        return a - b;
+      };
+      // return 부분이 한 줄일 때 {return }이 생략될 수 있음.
+      const minus3 = (a, b) => a - b;
+      console.log(minus2(100, 30));
+    </script>
+
+    <p>비동기? - 먼저 처리되는 것부터 처리하기?</p>
+    function(function(function(function(){}){}){}){}
+
+    <p>배열.함수</p>
+    <!-- 배열.함수(콜백함수: 함수/파라미터) -->
+    <script>
+      const arr = [1, 2, 3, 4, 5, 6, 7];
+      // forEach : 값을 하나씩 가져올 수 있다.
+      // 배열.forEach ((값, 인덱스, 배열) => {});
+      console.log("forEach");
+      arr.forEach((data, index, array) => {
+        console.log(data);
+        console.log(index);
+        console.log(array);
+      });
+
+      // map : 리턴한 값들을 기반으로 새로운 배열을 만든다.
+      // 배열.map ((값, 인덱스, 배열) => {});
+      console.log("map");
+      const arr2 = arr.map(function (data) {
+        return data * 2;
+      });
+      console.log(arr2);
+
+      // filter : 리턴한 값들이 true인 것들만 모아서 새로운 배열을 만든다.
+      // 배열.filter((값, 인덱스, 배열) => {return });
+      arr3 = arr.filter((data) => {
+        return data % 2 === 0;
+      });
+      console.log(arr3);
+
+      // reduce : 하나의 결과값을 반환. (배열X)
+      // 배열.reduce((누적된 값(accumulator), 값, 인덱스, 배열) => {
+      // return accumlator + 값}, 초기값);
+      //   accumulator : (누적된 값)
+      const arr3 = [1, 2, 3, 4, 5, 6, 7];
+      const result2 = arr3.reduce(function (accumulator, data) {
+        return accumulator + data; // acc = acc + data
+      }, 2);
+      console.log(result2);
+    </script>
+  </body>
+</html>
