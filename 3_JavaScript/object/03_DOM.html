@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* classList 사용을 위해 설정한 style */
+      .black {
+        background-color: black;
+        color: white;
+      }
+      .skyblue {
+        background-color: skyblue;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DOM(Document Object Model)</h1>
+    <h1>TEST</h1>
+
+    <h2>문서 객체 가져오기</h2>
+
+    <h3>1. 태그로 가져오기</h3>
+    <button onclick="btn1()">실행 확인</button>
+
+    <h3>2. id로 가져오기</h3>
+    <!--CSS-->
+    <button onclick="btn2()">실행 확인</button>
+
+    <!-- <div id="testId" class="testClass" name="testName">Hello, World!</div>
+    <div id="testId" class="testClass" name="testName">Hello, JavaScript!</div> -->
+
+    <h3>3. class로 가져오기</h3>
+    <!--CSS-->
+    <button onclick="btn3()">실행 확인</button>
+
+    <h3>4. name으로 가져오기</h3>
+    <!--form 태그-->
+    <button onclick="btn4()">실행 확인</button>
+    <!-- form 태그에 붙인 name(ex.frm)은 document.frm으로 호출 가능 -->
+
+    <h3>5. 선택자로 가져오기 (추천!)</h3>
+    <button onclick="btn5()">실행 확인</button>
+
+    <h2>문서 객체 조작하기</h2>
+
+    <div id="testId" class="testClass" name="testName">Hello, World!</div>
+    <div id="testId2" class="testClass" name="testName">Hello, JavaScript!</div>
+
+    <h3>1. 내용 조작하기</h3>
+    <button onclick="btn6()">실행 확인</button>
+
+    <h3>2. 속성 조작하기</h3>
+    <button onclick="btn7()">실행 확인</button>
+
+    <h3>3. 스타일 조작하기</h3>
+    <button onclick="btn8()">실행 확인</button>
+
+    <h3>4. classList 사용하기</h3>
+    <button onclick="btn9()">add</button>
+    <button onclick="btn10()">remove</button>
+    <button onclick="btn11()">contains</button>
+    <button onclick="btn12()">toggle</button>
+    <!--ex_ 다크모드-->
+
+    <h2>문서 객체 추가하기</h2>
+    <button onclick="btn13()">실행 확인</button>
+
+    <h2>문서 객체 삭제하기</h2>
+    <button onclick="btn14()">실행 확인</button>
+  </body>
+  <script src="js/03_DOM.js"></script>
+</html>

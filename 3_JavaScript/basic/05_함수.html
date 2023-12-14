@@ -132,5 +132,25 @@
       }, 2);
       console.log(result2);
     </script>
+
+    <!--
+      console.log("합계")
+      console.log("합계", 12)
+      console.log("합계", 12, "평균")
+    -->
+
+    <p>가변 파라미터 ...args</p>
+    <p>arguments 객체는 function으로 정의한 함수에서만 사용</p>
+    <!-- 가변 파라미터 (가변 매개변수) -->
+    <script>
+      function sum(...args) {
+        console.log("sum!");
+        console.log(arguments.length);
+        console.log(args);
+      }
+      sum(10, 20);
+      sum(10, 20, 30);
+      sum(10, 20, 30, 40, 50);
+    </script>
   </body>
 </html>

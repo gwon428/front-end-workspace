@@ -212,6 +212,7 @@
       for (let i = 0; i < scores.length; i++) {
         for (let j = 0; j < scores[i].length; j++) {
           if (j == scores[0].length) break;
+          // 학생의 과목 수가 다를 수 있으니 scores[0].length 보다는 scores[i].length가 더 적합
           sum = sum + scores[i][j];
         }
         console.log(sum);

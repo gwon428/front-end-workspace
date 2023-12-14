@@ -9,6 +9,10 @@
     <!-- 테스트는 자유! -->
     <!-- Q1. 세 수의 합을 구하는 함수를 만들어 주세요. -->
     <script>
+      console.log("Q1===================================");
+      function add(a, b, c) {
+        return a + b + c;
+      }
       console.log(add(10, 20, 30)); // 60
       console.log(add(20, 30, 50)); // 100
     </script>
@@ -17,6 +21,10 @@
               삼각형의 넓이 = (삼각형의 너비 * 삼각형의 높이) / 2;
     -->
     <script>
+      console.log("Q2===================================");
+      function triangle(a, b) {
+        return (a * b) / 2;
+      }
       console.log(triangle(5, 8)); // 20
       console.log(triangle(3, 8)); // 12
     </script>
@@ -26,12 +34,27 @@
              원의 넓이 = 반지름 * 반지름 * 3.14;
     -->
     <script>
+      console.log("Q3===================================");
+      function round(r) {
+        return 2 * r * 3.14;
+      }
+      function area(r) {
+        return r * r * 3.14;
+      }
       console.log(round(2)); // 12.56
       console.log(area(3)); // 28.26
     </script>
 
     <!-- Q4. 시작 수(n1)과 끝 수(n2)가 주어졌을 때 n1 ~ n2의 합계를 구하는 함수를 만들어 주세요 -->
     <script>
+      console.log("Q4===================================");
+      function sum(a, b) {
+        let total = 0;
+        for (i = a; i <= b; i++) {
+          total += i;
+        }
+        return total;
+      }
       console.log(sum(10, 20)); // 165
       console.log(sum(100, 200)); // 15150
     </script>
@@ -43,6 +66,34 @@
                구매가가 100000원 이상 : 10%
     -->
     <script>
+      console.log("Q5===================================");
+      function calculate(price) {
+        // 조건을 최대한 짧게 나열할 수 있게 생각하는 습관
+        //   if (price >= 100000) {
+        //     // 10만원 이상 => 이 뒤에 나오는 조건은 다 10만원 미만
+        //     return price * 0.9;
+        //   } else if (price >= 50000) {
+        //     // 5만원 이상 => 이 뒤에 나오는 조건은 다 5만원 미만
+        //     return price * 0.925;
+        //   } else if (price >= 10000) {
+        //     return price * 0.95;
+        //   }
+        //   return price;
+        // }
+
+        // return을 만나면 코드를 빠져나가서 그 아래 코드들은 실행되지 X.
+
+        let rate = 0;
+        if (price >= 100000) {
+          rate = 10;
+        } else if (price >= 50000) {
+          rate = 7.5;
+        } else if (price >= 10000) {
+          rate = 5;
+        }
+        return (price * (100 - rate)) / 100;
+      }
+
       console.log(calculate(20000)); // 19000
       console.log(calculate(65000)); // 60125
     </script>

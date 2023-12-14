@@ -198,10 +198,34 @@
     <script>
       console.log("10번======================");
       const scores = [
-        [83, 90, 70, 87],
+        [83, 90, 70, 87], //scores[0]
         [87, 93, 62, 83],
         [98, 90, 77, 97],
       ];
+
+      let sum = 0;
+      for (let i = 0; i < scores.length; i++) {
+        for (let j = 0; j < scores[i].length; j++) {
+          if (j == scores[i].length) break;
+          sum += scores[i][j];
+        }
+        console.log(
+          `${i + 1}번째 학생의 성적 총합은 ${sum}이고, 평균은 ${
+            sum / scores[0].length
+          }입니다.`
+        );
+        sum = 0;
+      }
+
+      let total = 0;
+      for (let i = 0; i < scores.length; i++) {
+        for (let j = 0; j < scores[i].length; j++) {
+          total += scores[i][j];
+        }
+        console.log(`${i + 1}번째 학생 : 총합은 ${total}/
+        평균은 ${total / scores[i].length}`);
+        total = 0;
+      }
     </script>
   </body>
 </html>
