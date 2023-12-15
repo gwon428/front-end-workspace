@@ -1,0 +1,42 @@
+* {
+  text-align: center;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  width: 150p;
+  padding-bottom: 10px;
+}
+
+#container img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 15px;
+}
+
+#click {
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: hotpink;
+  color: darkblue;
+  font-weight: bolder;
+  border: none;
+}
+
+#click2 {
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: pink;
+  font-weight: bolder;
+  border: none;
+}
+
+h2 {
+  visibility: hidden;
+}

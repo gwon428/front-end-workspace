@@ -53,9 +53,6 @@
     <button onclick="printValue();">입력값 출력하기</button>
 
     <div id="result1"></div>
-    <!-- const input = ~~~~
-        input.value
-    -->
 
     <script>
       function printValue() {
@@ -64,6 +61,9 @@
         const product = document.querySelector("#product").value;
         const price = document.querySelector("#price").value;
         result1.innerHTML = `${customer}님의 구매상품은  ${product}, 구매 가격은 ${price}원 입니다.`;
+
+        //위에 5줄이 이 아래 한 줄이 됨.
+        // result1.innerHTML = `${customer.value}님의 구매상품은 ${product.value}, 구매 가격은 ${price.value}원 입니다.`;
       }
     </script>
 
@@ -91,11 +91,10 @@
 
     <script>
       function stringLength() {
-        const result2 = document.querySelector("#result2");
-        const length = document.querySelector("#text1").value;
-        const strArr = length.split("");
-        const strlength = strArr.length;
-        result2.innerHTML = `보기의 문자열 길이는 ${strlength}입니다.`;
+        // const text = document.querySelector("#text1");
+        // const result = document.querySelector("#result2");
+
+        result2.innerHTML = `보기의 문자열 길이는 ${text1.value.length}글자 입니다.`;
       }
     </script>
 
@@ -120,19 +119,7 @@
     <button onclick="stringSplit();">확인하기</button>
 
     <script>
-      function stringSplit() {
-        const result3 = document.querySelector("#result3");
-        const arr = document.querySelector("#la1").innerHTML;
-        const strArr = arr.split(",");
-        const ol = document.createElement("ol");
-        console.log(strArr);
-        for (i = 0; i < strArr.length; i++) {
-          const li = document.createElement("li");
-          li.innerHTML = strArr[i];
-          ol.appendChild(li);
-        }
-        result3.appendChild(ol);
-      }
+      function stringSplit() {}
     </script>
 
     <hr />
@@ -173,25 +160,19 @@
 
     <script>
       function arrayTest() {
-        const result4 = document.querySelector("#result4");
-        const pre = document.querySelector("#preview").innerHTML;
-        const preview = pre.split(" ");
-        rem = preview.indexOf(document.querySelector("#remove").value);
-        preview.splice(rem, 1);
-        preview.push(document.querySelector("#add").value);
-
-        result4.innerHTML = `${preview}`;
+        const result = document.querySelector("#result4");
+        const arr = preview.innerHTML.split(" ");
+        const index = arr.indexOf(remove.value);
+        arr.splice(index, 1);
+        arr.push(add.value);
+        console.log(arr.join(" "));
+        console.log(arr);
       }
     </script>
 
     <hr />
 
     <h2>문제 5. 학생 정보 테이블에 입력하기</h2>
-    <!-- 학생 정보는 객체로 배열로 저장하여 테이블에 입력하세요. 
-    'aaa' : 1: 서울
-    'bbb' : 2: 경기
-    'ccc' : 3: 제주도
-    -->
     <p>
       다음 입력 및 출력 버튼 클릭 시 학생 정보를 3명 받아서 테이블에 출력하는
       코드를 작성하세요.
@@ -224,74 +205,35 @@
       <button onclick="addStudent();">입력 및 출력</button>
     </div>
 
-    <!-- 
-      prompt!!
-      1. input. (값을 9번에 아니면 ','로 구분?)
-      2. 받은 값을 배열에 저장.
-      3. 배열 1, 2, 3을 td에 넣고 넣고 넣기.
-    ['aaa' : 1: 서울]
-    ['bbb' : 2: 경기]
-    ['ccc' : 3: 제주도]
-    받아서 순서대로 td에 넣을거야.
-    td.innerHTML = obj.name;
-    #memberinfo.appendChild = (td..) < 이건 잘 모루겟당.
-    document.querySelector(#memberInfo).append(?)
-     -->
-
     <script>
+      function Student(name, age, addr) {
+        this.name = name;
+        this.age = age;
+        this.addr = addr;
+      }
       function addStudent() {
-        function stu(name, age, addr) {
-          this.name = name;
-          this.age = age;
-          this.addr = addr;
+        //입력
+        const arr = [];
+        for (let i = 0; i < 3; i++) {
+          const name = prompt(`${i + 1}번째 학생 이름 입력`);
+          const age = prompt(`${i + 1}번째 학생 나이 입력`);
+          const addr = prompt(`${i + 1}번째 학생 주소 입력`);
+          const student = new Student(name, age, addr);
+          arr.push(student);
+          console.log(arr);
         }
 
-        stuArr = [];
-        for (i = 1; i <= 3; i++) {
-          const name = prompt(`학생 ${i}의 이름을 입력하세요`);
-          const age = prompt(`학생 ${i}의 나이를 입력하세요`);
-          const addr = prompt(`학생 ${i}의 주소를 입력하세요`);
-          const stu1 = new stu(name, age, addr);
-          stuArr.push(stu1);
-        }
-        console.log(stuArr);
-        console.log(stuArr[0]);
-        console.log(stuArr[1]);
-        console.log(stuArr[2]);
+        //출력
 
-        const name = document.querySelectorAll(".name");
-        const age = document.querySelectorAll(".age");
-        const adr = document.querySelectorAll(".addr");
+        const names = document.querySelectorAll(".name");
+        const ages = document.querySelectorAll(".age");
+        const addrs = document.querySelectorAll(".addr");
 
         for (i = 0; i < 3; i++) {
-          name[i].innerHTML = stuArr[i].name;
-          age[i].innerHTML = stuArr[i].age;
-          adr[i].innerHTML = stuArr[i].addr;
+          names[i].innerHTML = arr[i].name;
+          ages[i].innerHTML = arr[i].age;
+          addrs[i].innerHTML = arr[i].addr;
         }
-        // const name = document.querySelector(".name");
-        // name.innerHTML = stuArr[0];
-        // const age = document.querySelector(".age");
-        // age.innerHTML = stuArr[1];
-        // const adr = document.querySelector(".addr");
-        // adr.innerHTML = stuArr[2];
-
-        // table id = memberInfo
-        // td class = name
-        // td class = age
-        // td class = addr
-
-        // const td = document.querySelectorAll("td");
-        // for (i = 0; i < 3; i++) {
-        //   td[i].innerHTML = stu[i];
-        // }
-
-        // let stuInfo = new Array();
-        // let stu = document.createElement("input");
-        // const stuArr = stu.split("");
-        // for (i = 0; i < stuArr.length; i++) {
-        //   stuInfo.push(stuArr[i]);
-        // }
-        // console.log(stuInfo);
       }
     </script>
   </body>
