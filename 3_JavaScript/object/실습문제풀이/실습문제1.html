@@ -119,7 +119,27 @@
     <button onclick="stringSplit();">확인하기</button>
 
     <script>
-      function stringSplit() {}
+      function stringSplit() {
+        // ol, li
+        const label = document.querySelector("#la1");
+        const result = document.querySelector("#result3");
+        const arr = label.innerHTML.split(",");
+
+        // const ol = document.createElement("ol");
+
+        // for (let data of arr) {
+        //   const li = document.createElement("li");
+        //   li.innerHTML = data;
+        //   ol.appendChild(li);
+        // }
+        // result.appendChild(ol);
+
+        // index
+        for (let i = 0; i < arr.length; i++) {
+          console.log(Number(i) + 1, arr[i]);
+          result.innerHTML += `${i + 1}. ${arr[i]} <br>`;
+        }
+      }
     </script>
 
     <hr />
@@ -160,13 +180,17 @@
 
     <script>
       function arrayTest() {
+        const preview = document.querySelector("#preview");
+        const remove = document.querySelector("#remove");
+        const add = document.querySelector("#add");
         const result = document.querySelector("#result4");
         const arr = preview.innerHTML.split(" ");
+
         const index = arr.indexOf(remove.value);
         arr.splice(index, 1);
         arr.push(add.value);
-        console.log(arr.join(" "));
-        console.log(arr);
+        const arrArr = arr.join(" ");
+        result.innerHTML = arrArr;
       }
     </script>
 
