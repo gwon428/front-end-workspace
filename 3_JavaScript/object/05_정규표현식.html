@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규표현식</title>
+  </head>
+  <body>
+    <h1>정규표현식</h1>
+    <h2>정규표현식과 함께 쓰이는 함수들</h2>
+    <div id="area1"></div>
+    <script>
+      const str1 = "html css javascript";
+      const regExp1 = /script/;
+      area1.innerHTML += `regExp1.test(str1) : ${regExp1.test(str1)}<br>`;
+      // 결과값 : regExp1.test(str1) : true    (있으면 T, 없으면 F로 출력)
+      area1.innerHTML += `regExp1.exec(str1) : ${regExp1.exec(str1)}<br>`;
+      // 결과값 : regExp1.exec(str1) : script  (있으면 해당하는 그 문자를 출력, 없는 경우 null 리턴)
+      area1.innerHTML += `str1.match(regExp1) : ${str1.match(regExp1)}<br>`;
+      // 결과값 : str1.match(regExp1) : script (문자열에서 정규표현식이 일치하는 값만 찾아서 리턴)
+      area1.innerHTML += `str1.search(regExp1) : ${str1.search(regExp1)}<br>`;
+      // 결과값 : str1.search(regExp1) : 13 (찾은 문자열의 시작 인덱스 값, 없는 경우 -1 리턴)
+      area1.innerHTML += `str1.replace(regExp1, 변경할 값) : ${str1.replace(
+        regExp1,
+        "스크립트"
+      )}<br>`;
+      // 결과값 :str1.replace(regExp1, '스크립트') : html css java스크립트
+      area1.innerHTML += `str1.split(regExp1) : ${str1.split(regExp1)}<br>`;
+      // 결과값 : str1.split(regExp1) : html css java,
+    </script>
+
+    <h2>플래그 문자</h2>
+    <div id="area2"></div>
+    <script>
+      const str2 = "HTML Css JAvaScript";
+      area2.innerHTML += `/c/ : ${str2.replace(/c/, "($&)")} <br>`;
+      // 출력값 : str2.replace(/c/, "($&)") : HTML Css JAvaS(c)ript
+      // $& : 문자를 그대로 입력할 때 사용해서 괄호를 추가해서 대체.(?)
+      // replace 함수에서 '$&'는 패턴을 만족하는 문자열을 가리킴.
+      area2.innerHTML += `/c/i : ${str2.replace(/c/i, "($&)")} <br>`;
+      // 출력값 : str2.replace(/c/i, "($&)") : HTML (C)ss JAvaScript
+      // i는 비교문자를 대소문자를 가리지 않기 때문에 첫번째 'C'에서 변경이 이루어짐.
+      area2.innerHTML += `/s/g : ${str2.replace(/s/g, "($&)")} <br>`;
+      // 출력값 : str2.replace(/s/g, "($&)") : HTML C(s)(s) JAvaScript
+      // g는 그 문장에서 해당하는 것들을 '모두' 찾음.
+      area2.innerHTML += `/s/ig : ${str2.replace(/s/gi, "($&)")} <br>`;
+      // 출력값 : str2.replace(/s/ig, "($&)") : HTML C(s)(s) JAva(S)cript
+      // ig는 전체 다 찾으면서, 소문자 대문자 상관없이 치환.
+    </script>
+
+    <h2>메타 문자</h2>
+    <h3>1. 반복 검색</h3>
+    <h4>{m,n}, +, ?</h4>
+    <div id="area3"></div>
+    <script>
+      const str3 = "a aa aaa aaaa";
+      area3.innerHTML += `/a{1, 2}/g : ${str3.replace(/a{1,2}/g, "($&)")} <br>`;
+      // (a) (aa) (aa)(a) (aa)(aa) : 1개부터 2개까지 모두 치환
+      area3.innerHTML += `/a{3}/g : ${str3.replace(/a{3}/g, "($&)")} <br>`;
+      // a aa (aaa) (aaa)a : 3개인 것들을 모두 치환
+      area3.innerHTML += `/a{2, }/g : ${str3.replace(/a{2,}/g, "($&)")} <br>`;
+      // a (aa) (aaa) (aaaa) : a가 2개 이상인 것들을 모두 치환
+      area3.innerHTML += `/a+/g : ${str3.replace(/a+/g, "($&)")}<br>`;
+      // (a) (aa) (aaa) (aaaa) : 앞선 패턴이 최소 한 번 이상 반복되는 문자열 = {1,}
+      area3.innerHTML += `/a?/g : ${str3.replace(/a?/g, "($&)")}<br>`;
+      // (a)() (a)(a)() (a)(a)(a)() (a)(a)(a)(a)() : {0, 1}. 띄어쓰기까지 인식.
+    </script>
+
+    <h3>2. 문자열의 앞, 뒤 구분</h3>
+    <h4>^, &</h4>
+    <div id="area4"></div>
+    <script>
+      const str4 = "Javascript\njQuery\nAjax\nReact";
+      area4.innerHTML += `^j/ig : ${str4.replace(/^j/gi, "($&)")}<br>`;
+      // (J)avascript jQuery Ajax React : 문자열의 시작이 j인지의 판단.
+      area4.innerHTML += `^a/ig : ${str4.replace(/^a/gi, "($&)")} <br>`;
+      // Javascript jQuery Ajax React : 문자열의 시작이 j이기 때문에 A가 있어도 찾지 못함.
+      area4.innerHTML += `/ct$/ig : ${str4.replace(/ct$/gi, "($&)")}<br>`;
+      // Javascript jQuery Ajax Rea(ct) : 문자열의 끝이 ct로 끝나는지의 판단.
+    </script>
+
+    <h3>3. OR 검색</h3>
+    <div id="area5"></div>
+    <script>
+      let str5 = "Javascript jQuery Ajax";
+      area5.innerHTML += `/[aj]/ig : ${str5.replace(/[aj]/gi, "($&)")}<br>`;
+      // (J)(a)v(a)script (j)Query (A)(j)(a)x
+      area5.innerHTML += `/[^aj]/ig : ${str5.replace(/[^aj]/gi, "($&)")}<br>`;
+      // Ja(v)a(s)(c)(r)(i)(p)(t)( )j(Q)(u)(e)(r)(y)( )Aja(x)
+      // [] 내의 ^는 not을 의미함
+      str5 = "123 JavaScript";
+      area5.innerHTML += `/[A-Z]/g : ${str5.replace(/[A-Z]/g, "($&)")}<br>`;
+      // 123 (J)ava(S)cript
+      area5.innerHTML += `/[a-z]/g : ${str5.replace(/[a-z]/g, "($&)")}<br>`;
+      // 123 J(a)(v)(a)S(c)(r)(i)(p)(t)
+      area5.innerHTML += `/[0-9]/g : ${str5.replace(/[0-9]/g, "($&)")}<br>`;
+      // (1)(2)(3) JavaScript
+      area5.innerHTML += `/[0-9A-Z]/gi : ${str5.replace(
+        /[0-9A-Z]/g,
+        "($&)"
+      )}<br>`;
+      // (1)(2)(3) (J)ava(S)cript)
+      area5.innerHTML += `/[0-9A-Za-z]/gi : ${str5.replace(
+        /[0-9A-Za-z]/g,
+        "($&)"
+      )}`;
+      // (1)(2)(3) (J)(a)(v)(a)(S)(c)(r)(i)(p)(t)
+    </script>
+
+    <h3>임의의 문자열 검색</h3>
+    <div id="area6"></div>
+    <script>
+      const str6 = "123 Java Script";
+      area6.innerHTML += `/..../g : ${str6.replace(/..../g, "($&)")}<br>`;
+      // (123 )(Java)( Scr)ipt
+      area6.innerHTML += `/.../g : ${str6.replace(/.../g, "($&)")}<br>`;
+      // (123)( Ja)(va )(Scr)(ipt)
+    </script>
+
+    <h3>추가 메타 문자</h3>
+    <div id="area7"></div>
+    <script>
+      const str7 = "A1 B2 C3 d_4 e:5 ` ffgg77--__--` \t가\n나\n다";
+      console.log(str7);
+      area7.innerHTML += `/\d/g : ${str7.replace(/\d/g, "($&)")}<br>`;
+      // A(1) B(2) C(3) d_(4) e:(5) ` ffgg(7)(7)--__--` 가 나 다
+      // \d : 숫자.
+      // /\d/g == [0-9]g와 같다.
+
+      area7.innerHTML += `/\D/g : ${str7.replace(/\D/g, "($&)")}<br>`;
+      // (A)1( )(B)2( )(C)3( )(d)(_)4( )(e)(:)5( )(`)( )(f)(f)(g)(g)77(-)(-)(_)(_)(-)(-)(`)( )( )(가)( )(나)( )(다)
+      // \D : 숫자가 아닌 문자. (띄어쓰기, : _ 포함-)
+
+      area7.innerHTML += `/\w/g : ${str7.replace(/\w/g, "($&)")}<br>`;
+      // (A)(1) (B)(2) (C)(3) (d)(_)(4) (e):(5) ` (f)(f)(g)(g)(7)(7)--(_)(_)--` 가 나 다
+      // \w : 알파벳, 숫자, _
+
+      area7.innerHTML += `/\W/g : ${str7.replace(/\W/g, "($&)")}<br>`;
+      // A1( )B2( )C3( )d_4( )e(:)5( )(`)( )ffgg77(-)(-)__(-)(-)(`)( )( )(가)( )(나)( )(다)
+
+      area7.innerHTML += `/\s/g : ${str7.replace(/\s/g, "($&)")}<br>`;
+      // A1( )B2( )C3( )d_4( )e:5( )`( )ffgg77--__--`( )( )가( )나( )다
+      // \s : 공백 문자를 의미
+
+      area7.innerHTML += `/\S/g : ${str7.replace(/\S/g, "($&)")}<br>`;
+      // (A)(1) (B)(2) (C)(3) (d)(_)(4) (e)(:)(5) (`) (f)(f)(g)(g)(7)(7)(-)(-)(_)(_)(-)(-)(`) (가) (나) (다)
+      // \S : 공백이 아닌 문자
+    </script>
+
+    <h2>연습</h2>
+    <h3>주민등록번호 확인</h3>
+    <div id="area8">
+      <input type="text" placeholder="- 포함해서 입력하시오." id="pno" />
+      <button>확인</button>
+    </div>
+    <script>
+      const btn = document.querySelector("button");
+      // 1단계 : 6글자-7글자
+      //(문제점 : 숫자 외의 다른 문자가 와도 가능)
+      let regExp = /^......-.......$/g;
+      // 2단계 : 숫자만 입력하여 숫자 6개 - 숫자 7개
+      regExp = /^\d{6}-\d{7}$/g;
+      // 3단계 : 숫자값 6개 - [1,2,3,4] 숫자값 6개
+      // (문제점 : 앞에 수가 0이 될 수 없음.)
+      regExp = /^\d{6}-[1234]\d{6}$/;
+      /* 4단계 :
+      생년(두자리)
+        아무 숫자로 두자리만 채우면 됨
+      생월(두자리)
+        앞자리가 0일 경우 (뒷자리가 1-9) 0[1-9]
+        앞자리가 1일 경우 (뒷자리가 0, 1, 2) 1[0-2]
+      일(두자리)
+        앞자리가 0일 경우 (뒷자리가 1-9) 0[1-9]
+        앞자리가 1 또는 2일 경우 (뒷자리가 0-9) [12][0-9]
+        앞자리가 3일 경우 (뒷자리가 0, 1) 3[01]
+      */
+      regExp = /^\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[01])-[1234]\d{6}$/g;
+
+      btn.addEventListener("click", function () {
+        if (regExp.test(pno.value)) {
+          alert("정상 입력!");
+        } else {
+          alert("잘못된 입력입니다.");
+        }
+      });
+    </script>
+  </body>
+</html>
