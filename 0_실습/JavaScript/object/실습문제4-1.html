@@ -3,62 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>정규표현식</title>
+    <title>실습문제4</title>
     <style>
       body {
+        height: 90vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 90vh;
       }
 
       form {
+        width: 600px;
         border: 1px solid #ccc;
+      }
+
+      form div {
         margin: 5px;
       }
-      form div {
-        margin-bottom: 10px;
-      }
+
       form span {
         display: block;
+        margin-left: 13px;
         color: #999;
-        margin-left: 12px;
+        margin-bottom: 10px;
       }
     </style>
   </head>
   <body>
     <form action="" onsubmit="return validate()">
       <div>
-        <label for="userId">* 아이디 : </label
-        ><input type="text" id="userId" name="userId" />
-        <span>
-          첫 글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로
-          입력하시오.
-        </span>
+        <label for="userId">* 아이디 :</label>
+        <input type="text" id="userId" name="userId" />
+        <span
+          >첫 글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로
+          입력하시오.</span
+        >
       </div>
       <div>
         <label for="userPwd">* 비밀번호 :</label>
         <input type="password" id="userPwd" name="userPwd" />
-
-        <span> 영문자, 숫자, 특수문자 포함하여 총 8~15자로 입력하시오. </span>
+        <span>영문자, 숫자, 특수문자 포함하여 총 8~15자로 입력하시오.</span>
       </div>
       <div>
         <label for="userPwdCheck">* 비밀번호 확인 :</label>
         <input type="password" id="userPwdCheck" name="userPwdCheck" />
-
-        <span> 위의 비밀번호와 일치하게 입력하시오. </span>
+        <span>위의 비밀번호와 일치하게 입력하시오.</span>
       </div>
       <div>
         <label for="userName">* 이름 :</label>
         <input type="text" id="userName" name="userName" />
-
-        <span> 한글로만 이루어져야되며 2글자 이상으로 입력하시오. </span>
+        <span>한글로만 이루어져야되며 2글자 이상으로 입력하시오.</span>
       </div>
       <div>
         <label for="email">* 이메일 :</label>
         <input type="text" id="email" name="email" />
-
-        <span> 이메일 형식에 맞춰서 입력하시오. </span>
+        <span>이메일 형식에 맞춰서 입력하시오.</span>
       </div>
       <div>
         <label for="hobby">* 취미 :</label>
@@ -74,38 +73,29 @@
         <select name="addr" id="addr">
           <option value="seoul">서울</option>
           <option value="incheon">인천</option>
-          <option value="yangju">양주</option>
+          <option value="gyeonggi">경기</option>
         </select>
       </div>
       <button type="submit">회원가입</button>
       <button type="reset">취소</button>
     </form>
-
     <script>
       function userIdCheck() {
-        //첫 글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로 입력하시오.
-        const regExp = /^[A-Za-z][A-Za-z0-9]{3,11}$/;
+        const regExp = /^[A-Za-z]{3,11}$/;
         return regExp.test(userId.value);
       }
-
       function userPwdCheck1() {
-        //영문자, 숫자, 특수문자 포함하여 총 8~15자로 입력하시오.
         const regExp = /^[!-~]{8,15}$/;
         return regExp.test(userPwd.value);
       }
-
       function userPwdCheck2() {
         return userPwd.value === userPwdCheck.value;
       }
-
       function userNameCheck() {
-        //한글로만 이루어져야되며 2글자 이상으로 입력하시오.
         const regExp = /^[가-힣]{2,}$/;
         return regExp.test(userName.value);
       }
-
       function emailCheck() {
-        //이메일 형식에 맞춰서 입력하시오.
         const regExp = /^\w+@\w+\.\w+$/;
         return regExp.test(email.value);
       }
@@ -127,7 +117,6 @@
           "첫 글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로 입력하시오."
         );
       });
-
       userPwd.addEventListener("input", function (e) {
         inputHandler(
           e,
@@ -135,7 +124,6 @@
           "영문자, 숫자, 특수문자 포함하여 총 8~15자로 입력하시오."
         );
       });
-
       userPwdCheck.addEventListener("input", function (e) {
         inputHandler(
           e,
@@ -143,7 +131,6 @@
           "위의 비밀번호와 일치하게 입력하시오."
         );
       });
-
       userName.addEventListener("input", function (e) {
         inputHandler(
           e,
@@ -151,25 +138,28 @@
           "한글로만 이루어져야되며 2글자 이상으로 입력하시오."
         );
       });
-
       email.addEventListener("input", function (e) {
-        inputHandler(e, emailCheck(), "이메일 형식에 맞춰서 입력하시오.");
+        inputHandler(
+          e,
+          emailCheck(),
+          "첫 글자는 반드시 영문자로, 그리고 영문자, 숫자 포함하여 총 4~12자로 입력하시오."
+        );
       });
 
       function validate() {
-        if (!userIdCheck()) {
+        if (!userIdCheck) {
           userId.focus();
           return false;
-        } else if (!userPwdCheck1()) {
+        } else if (!userPwdCheck1) {
           userPwd.focus();
           return false;
-        } else if (!userPwdCheck2()) {
+        } else if (!userPwdCheck2) {
           userPwdCheck.focus();
           return false;
-        } else if (!userNameCheck()) {
+        } else if (!userNameCheck) {
           userName.focus();
           return false;
-        } else if (!emailCheck()) {
+        } else if (!emailCheck) {
           email.focus();
           return false;
         }
