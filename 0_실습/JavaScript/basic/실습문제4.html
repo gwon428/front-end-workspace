@@ -56,12 +56,27 @@
     <!-- Q7. 배열에 있는 데이터들로 합계와 평균을 출력하세요 -->
     <script>
       const nums3 = [90, 85, 70, 86, 97];
+      let sum = 0;
+      for (i = 0; i < nums3.length; i++) {
+        sum += nums3[i];
+      }
+      console.log(sum);
+
+      const nums33 = nums3.reduce((ac, num) => {
+        return ac + num;
+      }, 0);
+      console.log(nums33);
+      console.log(nums33 / nums3.length);
     </script>
 
     <!-- Q8. 두 배열의 각 데이터의 곱셈을 한 데이터들로 이루어진 새로운 배열을 생성하여 출력하세요 -->
     <script>
       const a1 = [12, 0, 2, 5, 4];
       const b1 = [5, 15, 6, 7, 8];
+      let c1 = [];
+
+      a1.forEach((value, index) => c1.push(value * b1[index]));
+      console.log(c1);
     </script>
 
     <!-- Q9. 두 배열의 데이터 값이 서로 같은 데이터들만 이루어진 새로운 배열을 생성하여 출력하세요
@@ -70,6 +85,13 @@
     <script>
       const a2 = [12, 0, 2, 5, 4];
       const b2 = [0, 2, 3, 12, 8];
+      let c2 = [];
+      a2.forEach((value) => {
+        if (b2.includes(value)) {
+          c2.push(value);
+        }
+      });
+      console.log(c2);
     </script>
 
     <!-- Q10. 2차원 배열에는 3명의 학생의 4과목 성적이 들어 있습니다. 각 학생들의 합계와 평균을 출력하세요 -->
