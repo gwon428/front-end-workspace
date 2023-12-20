@@ -1,6 +1,5 @@
 const navIcons = document.querySelectorAll(".header-main-bottom i");
 const aList = document.querySelectorAll(".header-main-bottom a");
-console.log(aList);
 
 navIcons[0].addEventListener("click", function () {
   aList.forEach((a) => {
@@ -14,33 +13,35 @@ navIcons[1].addEventListener("click", function () {
   });
 });
 
-// 카테고리 버튼
-const categoryBtn = document.querySelector(".category-btn");
-const category = document.querySelector(".category");
+// main
+const mainImg = document.querySelectorAll("main > img");
 
-categoryBtn.addEventListener("mouseenter", function () {
-  category.style.display = "flex";
-});
+// 첫번째 이미지에 main-img-active 클래스가 추가되어 있음!
+setInterval(() => {
+  const className = "main-img-active";
+  for (let i = 0; i < mainImg.length; i++) {
+    // 첫번째 이미지에서는 클래스 제거, 두번째 이미지에 클래스 추가
+    // 두번째 이미지에서는 클래스 제거, 세번째 이미지에 클래스 추가
+    if (mainImg[i].classList.contains(className)) {
+      mainImg[i].classList.remove(className);
+      //마지막 이미지만 예외로 처리
+      if (i === mainImg.length - 1) {
+        mainImg[0].classList.add(className);
+        break;
+      }
+      mainImg[i + 1].classList.add(className);
+      break;
+    }
+  }
+}, 900);
 
-// categoryBtn.addEventListener("mouseleave", function () {
-//   category.style.display = "none";
-// });
-
-// 잠시 주석처리
-category.addEventListener("mouseleave", function () {
-  category.style.display = "none";
-});
-
-const categoryItems = document.querySelectorAll(".category-item");
-const categorySub = document.querySelector(".category-sub");
-const categorySubItems = document.querySelectorAll(".category-sub-item");
-
-categoryItems.forEach((item, index) => {
-  item.addEventListener("mouseenter", function () {
-    categorySub.style.display = "block";
-    categorySubItems[index].style.display = "block";
-  });
-  item.addEventListener("mouseleave", function () {
-    categorySubItems[index].style.display = "none";
-  });
+// 이벤트 추가 (스크롤)
+// 사용자가 스크롤을 내리는 순간 어느 시점에 나타나고 다시 올리면 사라지는
+const categoryMenu = document.querySelector(".category-menu");
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= 1375) {
+    categoryMenu.style.display = "flex";
+  } else {
+    categoryMenu.style.display = "none";
+  }
 });
