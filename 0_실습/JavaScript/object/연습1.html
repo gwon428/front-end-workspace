@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습 1</title>
+    <style>
+      body {
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        border: 1px solid gray;
+        width: 600px;
+        display: flex;
+        flex-direction: column;
+      }
+      form img {
+        padding: 10px;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit:cover;
+      }
+      form div {
+        padding: 10px;
+      }
+      #birth1 {
+        width: 50px;
+      }
+      #birth3 {
+        width: 30px;
+      }
+      .gender{
+        border: 1px solid gray;
+        width: 60%;
+      }
+      form span{
+        display: block;
+        color : gray;
+        padding-top : 10px;
+        padding-left: 14px;
+        font-size: 0.8rem;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/4602e82315.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form action="" onsubmit="return validate()">
+      <img src="/resources/spy3.jpg" alt="" />
+      <div>
+        <i class="fa-regular fa-id-badge"></i>
+        <label for="userId">아이디</label>
+        <input type="text" id="userId" name="userId" />
+        <span>영어 대/소문자로 시작하며, 영어 대/소문자, 숫자를 포함하여 8-10자로 입력</span>
+      </div>
+      <div>
+        <i class="fa-solid fa-lock"></i>
+        <label for="userPwd">비밀번호</label>
+        <input type="password" id="userPwd" name="userPwd" />
+        <span>특수문자, 영어 대/소문자, 숫자를 포함하여 5-13자로 입력</span>
+      </div>
+      <div>
+        <i class="fa-solid fa-check"></i>
+        <label for="userPwdCheck">비밀번호 재확인</label>
+        <input type="password" id="userPwdCheck" name="userPwdCheck" />
+        <span>위에 입력한 비밀번호와 동일하게 입력</span>
+      </div>
+      <div>
+        <i class="fa-regular fa-user"></i>
+        <label for="userName">이름</label>
+        <input type="text" id="userName" name="userName" />
+        <span>한글로만 이루어진 2-4글자</span>
+      </div>
+      
+      <div>
+        <label for="s">성별</label>
+        <div class="gender">
+          <label><input type="radio" name="gender" value="Male" /> 남자</label
+          >
+          <label><input type="radio" name="gender" value="Female" /> 여자</label
+          >
+          <label><input type="radio" name="gender" value="none" /> 선택 안함</label
+          >
+        </ㅇ>
+      </div>
+      <div>
+        <label for="email">본인 확인 이메일</label>
+        <input type="text" id="email" />
+        <span>유효한 이메일을 입력하세요.</span>
+      </div>
+      <div>
+        <button type="submit">가입하기</button>
+      </div>
+    </form>
+    <script>
+        function userIdCheck(){
+            const regExp = /^[A-Za-z]{7,9}$/;
+            return regExp.test(userId.value);
+        }
+        function userPwdCheck1(){
+            const regExp = /^[!-~]{5,13}$/;
+            return regExp.test(userPwd.value);
+        }
+        function userPwdCheck2(){
+            return userPwd.value === userPwdCheck.value;
+        }
+        function userNameCheck(){
+            const regExp = /^[가-힣]{2,4}$/;
+            return regExp.test(userName.value);
+        }
+        
+        function emailCheck(){
+            const regExp = /^\w+@\w+\.\w+$/;
+            return regExp.test(email.value);
+        }
+
+        function inputHandler(e, check, message){
+            if (check){
+                e.target.nextElementSibling.style.color = "green";
+                e.target.nextElementSibling.innerHTML = "Ok!";
+            } else {
+                e.target.nextElementSibling.style.color = "red";
+                e.target.nextElementSibling.innerHTML = message;
+            }
+        }
+
+        userId.addEventListener("input", function(e){
+            inputHandler(e, userIdCheck(), "영어 대/소문자로 시작하며, 영어 대/소문자, 숫자를 포함하여 8-10자로 입력");
+        });
+        userPwd.addEventListener("input", function(e){
+            inputHandler(e, userPwdCheck1(), "특수문자, 영어 대/소문자, 숫자를 포함하여 5-13자로 입력");
+        });
+        userPwdCheck.addEventListener("input", function(e){
+            inputHandler(e, userPwdCheck2(), "위에 입력한 비밀번호와 동일하게 입력");
+        });
+        userName.addEventListener("input", function(e){
+            inputHandler(e, userNameCheck(), "한글로만 이루어진 2-4글자");
+        });
+        
+        email.addEventListener("input", function(e){
+            inputHandler(e, emailCheck(), "유효한 이메일을 입력하세요.");
+        });
+
+        function validate(){
+            if (!userIdCheck()){
+                userId.focus();
+                return false;
+            } else if (!userPwdCheck1()){
+                userPwd.focus();
+                return false;
+            } else if (!userPwdCheck2()){
+                userPwdCheck.focus();
+                return false;
+            } else if (!userNameCheck()){
+                userName.focus();
+                return false;
+            } else if (!emailCheck()){
+                email.focus();
+                return false;
+            } return true;
+        }
+    </script>
+  </body>
+</html>

@@ -24,7 +24,6 @@ function btn3() {
   let result3 = Math.floor(Math.random() * 100 + 11); // 11~100 중 무작위
   console.log(result3);
 }
-
 function btn4() {
   const now = new Date();
   console.log(now);
