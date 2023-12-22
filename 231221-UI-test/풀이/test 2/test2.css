@@ -1,0 +1,49 @@
+body {
+  /* 폼을 화면 정가운데. */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+form {
+  width: 60%;
+}
+.form-content {
+  display: flex;
+  margin-bottom: 5px;
+}
+.form-content label {
+  /* width를 주면 input이 왼쪽에 같은 너비를 두고 일렬로 옆으로 밀려남 */
+  width: 130px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.form-content div {
+  display: flex;
+  flex: 1; /*width:100%와 동일*/
+  flex-direction: column;
+}
+.form-content input {
+  padding: 15px 10px;
+  margin-bottom: 5px;
+}
+.form-content span {
+  height: 25px;
+  color: red;
+}
+button {
+  width: 100%;
+  cursor: pointer;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 20px;
+}

@@ -1,0 +1,68 @@
+body {
+  height: 100vh;
+  border: 1px solid;
+  /* display : flex;
+  - main에 height 100%를 줬을 때 스크롤이 생기면서 아래로 내려가는 현상을 해결
+  */
+  display: flex;
+  flex-direction: column;
+}
+/* header */
+header {
+  display: flex;
+  height: 50px;
+  border-bottom: 1px solid;
+}
+.header-item {
+  flex: 1; /* 비율적으로 아예 균등하게 배열 */
+  text-align: center;
+  line-height: 50px;
+}
+.header-item:nth-child(4) {
+  flex: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.header-item:not(:last-child) {
+  border-right: 1px solid;
+}
+
+/* nav */
+nav {
+  height: 40px;
+  border-bottom: 1px solid;
+  line-height: 40px;
+  padding-left: 20px;
+}
+
+/* main */
+main {
+  height: 100%;
+  display: flex;
+}
+/* div로 구분된 main-left와 main-right를 비율 맞춰서 둘로 나누기 위함. */
+main > div {
+  flex: 1;
+}
+.main-left {
+  border-right: 1px solid;
+  background-image: url("exam.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.main-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.main-right h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.main-right p {
+  line-height: 1.5;
+  width: 80%;
+}
