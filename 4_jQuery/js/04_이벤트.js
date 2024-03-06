@@ -69,9 +69,84 @@ $("#textarea1").on({
     }
 });
 
-let count = "";
-for(count=0; count<100; count++){
-    $("#counter").keyup((e) => {
-        console.log(`${e.key}`);
-    });
+/* 내 풀이 . . */
+/*
+$('#textarea2').keyup((e) =>{
+    $('#counter').text($('#textarea2').val().length);
+    if($('#textarea2').val().length >= 100){
+        console.log($('#textarea2').val().length);
+        $('#textarea2').val( $('#textarea2').val().substring(0, 99));
+        $('#maxLength').css("color", "red");
+    } else {
+        $('#maxLength').css("color", "black");
+    }
+})
+*/
+
+/* 해설 */
+$('#textarea2').keyup((e) => {
+    let target = $(e.target);
+    let currentLength = $(e.target).val().length;
+    $('#counter').text(currentLength);
+
+    let maxLength = parseInt($('#maxLength').text());
+    console.log(maxLength);
+
+    if(currentLength > maxLength){
+        target.val(target.val().substring(0, maxLength));
+        $('#maxLength').css("color", "red");
+    } else {
+        $('#maxLength').css("color", "black");
+    }
+})
+
+// 동적으로 아이디 조건 확인
+
+function check() {
+    const regExp = /^[a-z][a-z0-9]{3,11}$/;
+    return regExp.test($('#userId').val());
 }
+
+$('#userId').keyup((e) =>{
+    let id=$(e.target).val();   // 제이쿼리 방식
+    id = e.target.value;        // 자바스크립트 방식
+
+    const regExp = /^[a-z][a-z0-9]{3,11}$/;
+    regExp.test(id)
+
+    if(regExp.test(id)){
+        $('#check').text("사용 가능한 아이디입니다.").css("color", "green");
+    } else if(id === ""){
+        $('#check').text("");
+    } else {
+        $('#check').text("사용 불가능한 아이디입니다.").css("color", "red");
+    } 
+});
+
+
+// 3. trigger() 메서드
+/* 같은 이벤트를 여러 개에 걸 때
+$('#area3').click(() => {
+    let counter = $('#counter2');
+    let currentCount = parseInt(counter.text());
+    counter.text(++currentCount);
+});
+
+$('#btn').click(()=>{
+    let counter = $('#counter2');
+    let currentCount = parseInt(counter.text());
+    counter.text(++currentCount);
+})
+*/
+
+// 축약
+$('#area3').click(() => {
+    let counter = $('#counter2');
+    let currentCount = parseInt(counter.text());
+    counter.text(++currentCount);
+});
+
+// #area3에 걸려있는 click 이벤트를 나도 쓰겠다.
+$('#btn').click(()=>{
+    $('#area3').trigger("click");
+})
