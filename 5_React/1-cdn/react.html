@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>react</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        let counter = 0;
+        const setCount = () => {
+            counter++;
+            // rerendering
+            ReactDOM.render(<Container />, root);
+        };
+        /*
+        const root = document.querySelector("#root");
+
+        // React.createElement 태그, 속성, 들어가는 text
+        const h1 = React.createElement("h1", null, "Total Clicks : 0");
+        // 만든 h1을 root에 넣겠다.
+
+        const button = React.createElement("button", { onClick: setCount }, "Click!");
+
+        // 만든 아이들을 하나의 div로 묶어서 container에 담아서 렌더링
+        const container = React.createElement("div", null, h1, button);
+        */
+
+        // JSX 문법으로 변경
+        // 변수처럼 쓸 때 선언한 변수를 {} 사이에 넣음
+        const Container = () => {
+            return (
+                <div>
+                    <h1>Total Clicks : {counter}</h1>
+                    <button onClick={setCount}>Click!</button>
+                </div>
+            );
+        }
+        // container를 태그처럼 생각해서 넣어야
+        ReactDOM.render(<Container />, root);
+
+    </script>
+</body>
+
+</html>
