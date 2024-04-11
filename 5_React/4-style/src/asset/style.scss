@@ -1,0 +1,46 @@
+/* 변수 지정 */
+$main-color: pink;
+$primary-size: 8rem;
+
+/*믹스인*/
+@mixin text-center {
+    text-align: center;
+}
+
+/*상속*/
+.border{
+    border: 10px solid gold;
+}
+
+div {
+    @include text-center;
+
+    background-color: black;
+    color: white;
+    font-size: 8rem;
+
+    /* SCSS 방식 : 중첩 가능 */
+    h1 {
+        color: yellow;
+
+        &:hover {
+            background-color: $main-color;
+        }
+    }
+
+}
+
+.class {
+    background-color: green;
+    font-size: 8rem;
+    @extend .border;
+
+    /* 미디어 쿼리 */
+    @media screen and (max-width: 800px) {
+        background-color: skyblue;
+    }
+}
+
+#id {
+    background-color: navy;
+}
