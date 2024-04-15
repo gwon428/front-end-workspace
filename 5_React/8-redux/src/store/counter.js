@@ -1,3 +1,4 @@
+/*
 import { createAction, handleActions } from "redux-actions";
 
 // 액션(Action) : 프로젝트의 상태에 변화를 일으키는 것 [액션 타입을 정의한다!]
@@ -16,4 +17,26 @@ const counter = handleActions(
     },
     0
 );
+*/
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const counter = createSlice({
+    name: "counterSlice",
+
+    // 초기값 세팅
+    initialState: 0, 
+
+    // 액션 함수
+    reducers:{
+        increase: (state, action) => {
+            return state + 1;
+        },
+        decrease: (state, action) => {
+            return state - 1;
+        }
+    }
+});
+
 export default counter;
+export const {increase, decrease} = counter.actions;
