@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         path: "/detail/:no",
         element: <Detail />,
 
-    }
+    },
 ]);
 
 export default router;
